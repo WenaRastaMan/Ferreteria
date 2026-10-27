@@ -1,0 +1,86 @@
+/* =========================================================
+   FERRETERÍA LOS MAESTROS — ajustes-react.css
+   Se carga al final para adaptar los componentes de Bootstrap
+   (Navbar colapsable y Offcanvas) a los estilos del sitio.
+========================================================= */
+
+/* Bootstrap deja los botones con su propia fuente */
+button {
+    font-family: inherit;
+}
+
+.pagina {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.pagina > main {
+    flex: 1;
+}
+
+/* ---------- Navbar de Bootstrap ---------- */
+
+.encabezado__menu .navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+    margin-block: 10px;
+}
+
+.encabezado__menu .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(255, 196, 83, 0.4);
+}
+
+/* Tablet y móvil: el menú se despliega en columna */
+@media (max-width: 991.98px) {
+    .encabezado__menu ul {
+        flex-direction: column;
+        gap: 4px;
+        padding: 4px 0 16px;
+    }
+
+    .encabezado__menu a {
+        display: block;
+        padding: 8px 0;
+    }
+
+    .encabezado__barra-contenido {
+        justify-content: center;
+    }
+}
+
+/* ---------- Offcanvas del panel ---------- */
+
+/* En computador el Offcanvas "responsive" se comporta como un aside fijo */
+@media (min-width: 992px) {
+    .admin-sidebar.offcanvas-lg {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        background: linear-gradient(180deg, var(--verde-oscuro) 0%, #0f2118 100%);
+    }
+}
+
+/* En móvil el Offcanvas abre desde la izquierda con el mismo fondo */
+@media (max-width: 991.98px) {
+    .admin-sidebar.offcanvas-lg {
+        --bs-offcanvas-bg: var(--verde-oscuro);
+        --bs-offcanvas-width: 270px;
+        padding: 22px 18px;
+    }
+
+    .admin-sidebar .offcanvas-header {
+        justify-content: flex-end;
+    }
+}
+
+/* Texto visible solo para lectores de pantalla (Bootstrap lo trae, se asegura aquí) */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+}

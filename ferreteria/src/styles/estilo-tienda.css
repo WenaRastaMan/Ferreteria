@@ -1,0 +1,516 @@
+/* =========================================================
+   FERRETERÍA LOS MAESTROS — estilo-tienda.css
+   Páginas de la tienda: hero, categorías, tarjetas de producto,
+   detalle, carrito, checkout y resultado de compra.
+========================================================= */
+
+/* ---------- Hero (inicio) ---------- */
+
+.hero {
+    position: relative;
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    color: var(--blanco);
+    background:
+        linear-gradient(105deg, rgba(13, 35, 23, 0.98), rgba(22, 58, 36, 0.86)),
+        url('/img/hero-ferreteria.png') center / cover;
+}
+
+.hero::after {
+    content: 'FERRETERÍA  •  CONSTRUCCIÓN  •  HERRAMIENTAS';
+    position: absolute;
+    right: 4%;
+    bottom: 14px;
+    color: rgba(255, 255, 255, 0.33);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+}
+
+.hero__contenido {
+    padding-block: 64px;
+}
+
+.hero__etiqueta {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    font-weight: 850;
+    color: #ffcd70;
+}
+
+.hero h1 {
+    color: var(--blanco);
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+    line-height: 1.1;
+    font-weight: 900;
+    max-width: 760px;
+    margin: 12px 0 20px;
+}
+
+.hero h1 em {
+    color: var(--amarillo);
+    font-style: normal;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #e8ede7;
+    max-width: 570px;
+}
+
+.hero__acciones {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+}
+
+.hero__acciones .boton {
+    padding: 12px 24px;
+    font-size: 1.05rem;
+}
+
+/* ---------- Beneficios ---------- */
+
+.beneficios {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.tarjeta-beneficio {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.tarjeta-beneficio__icono {
+    font-size: 1.6rem;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: var(--verde-claro);
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.tarjeta-beneficio h3 {
+    font-size: 1rem;
+    margin: 2px 0 4px;
+    letter-spacing: 0;
+}
+
+.tarjeta-beneficio p {
+    color: var(--texto-suave);
+    margin: 0;
+    font-size: 0.92rem;
+}
+
+/* ---------- Categorías ---------- */
+
+.tarjeta-categoria {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-height: 150px;
+    padding: 24px;
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    color: var(--texto);
+    box-shadow: var(--sombra);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.tarjeta-categoria:hover {
+    transform: translateY(-3px);
+    border-color: var(--verde-medio);
+    color: var(--texto);
+}
+
+.tarjeta-categoria__icono {
+    font-size: 1.8rem;
+}
+
+.tarjeta-categoria small {
+    color: var(--verde-medio);
+    margin-top: auto;
+}
+
+/* ---------- Catálogo: filtros ---------- */
+
+.filtros {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 18px 18px 20px;
+    margin: 0 0 18px;
+    box-shadow: var(--sombra);
+}
+
+.filtros .casilla {
+    margin: 0;
+}
+
+.filtros__limpiar {
+    border: 1.5px solid var(--borde);
+    background: transparent;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-weight: 600;
+}
+
+.filtros__limpiar:hover {
+    border-color: var(--verde-medio);
+    color: var(--verde-medio);
+}
+
+.resumen-resultados {
+    color: var(--texto-suave);
+    font-weight: 600;
+}
+
+/* ---------- Tarjeta de producto ---------- */
+
+.tarjeta-producto {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(18, 55, 33, 0.12);
+}
+
+.tarjeta-producto__imagen {
+    position: relative;
+    height: 160px;
+    display: grid;
+    place-items: center;
+    font-size: 4.2rem;
+    background: linear-gradient(135deg, #eef4eb, #e0e9db);
+}
+
+.tarjeta-producto__oferta {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--rojo);
+    color: var(--blanco);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 50px;
+    letter-spacing: 0.04em;
+}
+
+.tarjeta-producto__cuerpo {
+    padding: 14px 16px 6px;
+    flex-grow: 1;
+}
+
+.tarjeta-producto__meta {
+    font-size: 0.75rem;
+    color: var(--texto-suave);
+}
+
+.tarjeta-producto__nombre {
+    display: block;
+    color: var(--verde-oscuro);
+    font-weight: 800;
+    min-height: 48px;
+    margin: 4px 0;
+}
+
+.tarjeta-producto__boton {
+    margin: 8px 16px 16px;
+}
+
+/* ---------- Precio y stock ---------- */
+
+.precio {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.precio__actual {
+    color: var(--verde-precio);
+    font-size: 1.1rem;
+}
+
+.precio__anterior {
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+}
+
+.precio__descuento {
+    background: var(--rojo);
+    color: var(--blanco);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+}
+
+.precio--grande .precio__actual {
+    font-size: 2rem;
+}
+
+.stock {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+.stock--disponible { color: #2a8051; }
+.stock--bajo { color: var(--naranjo); }
+.stock--agotado { color: var(--rojo); }
+
+/* ---------- Detalle de producto ---------- */
+
+.enlace-volver {
+    font-weight: 600;
+}
+
+.detalle__imagen {
+    min-height: 340px;
+    display: grid;
+    place-items: center;
+    font-size: 9rem;
+    background: var(--verde-claro);
+    border-radius: 20px;
+}
+
+.detalle__info h1 {
+    margin: 4px 0 12px;
+}
+
+.ficha {
+    width: 100%;
+    margin: 18px 0;
+}
+
+.ficha th,
+.ficha td {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+.ficha th {
+    width: 40%;
+    color: var(--texto-suave);
+    font-weight: 600;
+}
+
+.detalle__comprar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ---------- Selector de cantidad ---------- */
+
+.selector-cantidad {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid var(--borde);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--blanco);
+}
+
+.selector-cantidad button {
+    border: 0;
+    background: var(--verde-claro);
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--verde);
+}
+
+.selector-cantidad button:disabled {
+    opacity: 0.4;
+}
+
+.selector-cantidad span {
+    min-width: 40px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* ---------- Carrito, checkout y resultado ---------- */
+
+.carrito__pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.carrito__total {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.carrito__botones {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.resumen h2 {
+    font-size: 1.25rem;
+}
+
+.resumen ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resumen li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+.resumen__total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    margin: 14px 0 0;
+}
+
+.resultado {
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.resultado h1 {
+    font-size: 1.8rem;
+}
+
+.resultado--ok {
+    border-top: 6px solid var(--verde-medio);
+}
+
+.resultado--error {
+    border-top: 6px solid var(--rojo);
+}
+
+.resultado .resumen {
+    box-shadow: none;
+    margin: 18px 0;
+    padding: 18px;
+    background: var(--fondo);
+}
+
+.resultado__botones {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cuenta-corriente {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    border-left: 6px solid var(--amarillo);
+}
+
+.cuenta-corriente strong {
+    font-size: 1.5rem;
+    color: var(--verde);
+}
+
+.texto-largo p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.contacto-datos p {
+    margin: 8px 0;
+}
+
+/* ---------- Aviso flotante ---------- */
+
+.aviso-flotante {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 1080;
+    max-width: min(420px, calc(100vw - 32px));
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--verde-oscuro);
+    color: var(--blanco);
+    padding: 14px 18px;
+    border-radius: 12px;
+    border-left: 5px solid var(--amarillo);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.aviso-flotante button {
+    border: 0;
+    background: transparent;
+    color: var(--blanco);
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 360px;
+    }
+
+    .hero::after {
+        display: none;
+    }
+
+    .tarjeta-producto__imagen {
+        height: 120px;
+        font-size: 3rem;
+    }
+
+    .tarjeta-producto__nombre {
+        font-size: 0.88rem;
+    }
+
+    .tarjeta-producto__cuerpo {
+        padding: 11px 11px 4px;
+    }
+
+    .tarjeta-producto__boton {
+        margin: 6px 10px 10px;
+        font-size: 0.78rem;
+        padding: 8px 10px;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .detalle__imagen {
+        min-height: 220px;
+        font-size: 6rem;
+    }
+}

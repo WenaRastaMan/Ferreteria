@@ -1,0 +1,564 @@
+/* =========================================================
+   FERRETERÍA LOS MAESTROS — styles.css
+   Estilos BASE de todo el sitio: paleta, tipografía, botones,
+   formularios, tablas, insignias, encabezado y pie.
+   Paleta: verde bosque (marca) + amarillo herramienta (acción).
+========================================================= */
+
+:root {
+    --verde-oscuro: #152b20;   /* barra superior y pie */
+    --verde: #214330;          /* menú y elementos de marca */
+    --verde-medio: #2e7045;    /* hover, enlaces */
+    --verde-precio: #28613a;   /* precios */
+    --verde-claro: #eaf0e9;    /* fondos suaves */
+    --amarillo: #ffc453;       /* botón principal */
+    --amarillo-fuerte: #ffae28;
+    --dorado: #e3bc6d;         /* detalles de la marca */
+    --fondo: #f7f8f4;
+    --blanco: #ffffff;
+    --texto: #192d20;
+    --texto-suave: #6b786e;
+    --borde: #e2e8df;
+    --rojo: #b3261e;
+    --naranjo: #ad6321;
+    --sombra: 0 6px 22px rgba(20, 54, 33, 0.08);
+    --radio: 14px;
+}
+
+/* ---------- Base ---------- */
+
+body {
+    margin: 0;
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--texto);
+}
+
+h1 {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+}
+
+a {
+    color: var(--verde-medio);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--verde);
+}
+
+.contenedor {
+    width: min(1200px, 100% - 32px);
+    margin-inline: auto;
+}
+
+.seccion {
+    padding-block: 40px;
+}
+
+.seccion--formulario {
+    max-width: 520px;
+}
+
+.texto-suave {
+    color: var(--texto-suave);
+}
+
+.texto-error {
+    color: var(--rojo);
+    font-size: 0.85rem;
+}
+
+.texto-oferta {
+    color: var(--rojo);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.panel {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 26px;
+    box-shadow: var(--sombra);
+}
+
+.estado-vacio {
+    background: var(--blanco);
+    border: 1px dashed var(--borde);
+    border-radius: var(--radio);
+    padding: 22px;
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+.estado-vacio--grande {
+    padding: 50px 20px;
+}
+
+/* ---------- Títulos de sección ---------- */
+
+.seccion-etiqueta {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--naranjo);
+    margin-bottom: 6px;
+}
+
+.titulo-seccion {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.titulo-seccion h2 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+/* Barrita amarilla antes del título (sello de la marca) */
+.titulo-seccion h1::before,
+.titulo-seccion h2::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 0.9em;
+    background: var(--amarillo);
+    border-radius: 3px;
+    margin-right: 12px;
+    vertical-align: -0.05em;
+}
+
+.titulo-seccion p {
+    color: var(--texto-suave);
+    margin: 6px 0 0;
+}
+
+.titulo-seccion__enlace {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    font-weight: 750;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    text-decoration: none;
+}
+
+.boton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.boton--principal {
+    background: var(--amarillo);
+    color: var(--verde-oscuro);
+}
+
+.boton--principal:hover:not(:disabled) {
+    background: var(--amarillo-fuerte);
+    color: var(--verde-oscuro);
+}
+
+.boton--secundario {
+    background: transparent;
+    border-color: var(--verde);
+    color: var(--verde);
+}
+
+.boton--secundario:hover {
+    background: var(--verde);
+    color: var(--blanco);
+}
+
+.boton--claro {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.8);
+    color: var(--blanco);
+}
+
+.boton--claro:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--blanco);
+}
+
+.boton--limpiar {
+    background: #eef1ec;
+    color: var(--texto);
+}
+
+.boton--exportar {
+    background: var(--verde);
+    color: var(--blanco);
+}
+
+.boton--exportar:hover {
+    background: var(--verde-medio);
+}
+
+.boton--chico {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.boton--ancho {
+    width: 100%;
+}
+
+/* Botones pequeños de acción en tablas */
+.boton-accion {
+    border: 1px solid;
+    background: transparent;
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.boton-accion--editar {
+    color: var(--verde-medio);
+    border-color: var(--verde-medio);
+}
+
+.boton-accion--editar:hover {
+    background: var(--verde-claro);
+}
+
+.boton-accion--eliminar {
+    color: var(--rojo);
+    border-color: var(--rojo);
+}
+
+.boton-accion--eliminar:hover {
+    background: #fbeceb;
+}
+
+/* ---------- Formularios ---------- */
+
+.formulario h1,
+.formulario h2 {
+    margin-bottom: 6px;
+}
+
+.formulario h2 {
+    font-size: 1.35rem;
+}
+
+.formulario-pie {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.campo label {
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    border: 1.5px solid var(--borde);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--blanco);
+    font: inherit;
+    color: var(--texto);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--verde-medio);
+    box-shadow: 0 0 0 3px rgba(46, 112, 69, 0.15);
+}
+
+.campo--invalido input,
+.campo--invalido select,
+.campo--invalido textarea {
+    border-color: var(--rojo);
+}
+
+.campo__error {
+    color: var(--rojo);
+    font-size: 0.83rem;
+    margin: 0;
+}
+
+.campo__ayuda {
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.casilla {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.92rem;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.casilla input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--verde);
+}
+
+.aviso-exito {
+    background: var(--verde-claro);
+    color: var(--verde);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-weight: 600;
+}
+
+/* ---------- Tablas ---------- */
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--blanco);
+    border-radius: var(--radio);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+.tabla th {
+    background: var(--verde-claro);
+    color: var(--verde);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 12px 14px;
+    text-align: left;
+}
+
+.tabla td {
+    padding: 12px 14px;
+    border-top: 1px solid var(--borde);
+    vertical-align: middle;
+}
+
+.tabla select {
+    border: 1.5px solid var(--borde);
+    border-radius: 8px;
+    padding: 5px 8px;
+}
+
+.tabla__emoji {
+    font-size: 1.4rem;
+}
+
+.tabla__codigo {
+    font-family: ui-monospace, monospace;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+}
+
+.tabla__acciones {
+    white-space: nowrap;
+    display: flex;
+    gap: 6px;
+}
+
+/* ---------- Insignias ---------- */
+
+.insignia {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.insignia--verde { background: #dcefe2; color: #1f6a3b; }
+.insignia--amarillo { background: #fff1cf; color: #7a5300; }
+.insignia--rojo { background: #fbe1df; color: var(--rojo); }
+.insignia--gris { background: #eceeea; color: #4c564e; }
+.insignia--oscuro { background: var(--verde-oscuro); color: var(--blanco); }
+
+/* ---------- Marca ---------- */
+
+.marca {
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--blanco);
+    font-size: 1.4rem;
+    line-height: 1.15;
+}
+
+.marca small {
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0.21em;
+    font-size: 0.53rem;
+    color: var(--dorado);
+}
+
+.marca:hover {
+    color: var(--blanco);
+}
+
+/* ---------- Encabezado ---------- */
+
+.encabezado__barra {
+    background: var(--verde-oscuro);
+    padding: 16px 0;
+}
+
+.encabezado__barra-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.encabezado__acciones {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.encabezado__saludo {
+    color: #dfe8e1;
+    font-size: 0.9rem;
+}
+
+.buscador {
+    display: flex;
+    gap: 6px;
+}
+
+.buscador input {
+    width: min(300px, 52vw);
+    border: 0;
+    border-radius: 10px;
+    padding: 9px 12px;
+    font: inherit;
+}
+
+.buscador button {
+    border: 0;
+    border-radius: 10px;
+    padding: 9px 16px;
+    font-weight: 750;
+    background: var(--amarillo);
+    color: var(--verde-oscuro);
+}
+
+.buscador button:hover {
+    background: var(--amarillo-fuerte);
+}
+
+.encabezado__menu {
+    background: var(--verde);
+    padding: 0;
+}
+
+.encabezado__menu ul {
+    display: flex;
+    gap: 26px;
+    list-style: none;
+    margin: 0;
+    padding: 14px 0;
+}
+
+.encabezado__menu a {
+    color: #e8f3ec;
+    font-weight: 600;
+    font-size: 0.93rem;
+}
+
+.encabezado__menu a:hover,
+.encabezado__menu a.active {
+    color: var(--amarillo);
+}
+
+.encabezado__menu .enlace-panel {
+    color: var(--dorado);
+}
+
+/* ---------- Pie ---------- */
+
+.pie {
+    background: var(--verde-oscuro);
+    color: #c9d6cc;
+    margin-top: 40px;
+}
+
+.pie__contenido {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+    padding-block: 44px 30px;
+}
+
+.pie h3 {
+    color: var(--amarillo);
+    font-size: 1rem;
+    letter-spacing: 0;
+}
+
+.pie p {
+    margin: 6px 0;
+    font-size: 0.92rem;
+}
+
+.pie__inferior {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    padding: 16px;
+    font-size: 0.82rem;
+}
+
+.pie__inferior p {
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .pie__contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .titulo-seccion {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
